@@ -296,6 +296,8 @@ main .stories-section .video-example {
 main .stories-section .video-example video {
   max-height: 600px;
   width: 97%;
+  -webkit-clip-path: inset(25px 0 25px 0 round 0 500px 500px 0);
+          clip-path: inset(25px 0 25px 0 round 0 500px 500px 0);
 }
 main .stories-section__copy {
   display: flex;

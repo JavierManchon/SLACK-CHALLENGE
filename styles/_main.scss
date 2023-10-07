@@ -292,7 +292,8 @@ main {
             
             video {
                 max-height: 600px;
-                width: 97%
+                width: 97%;
+                clip-path: inset(25px 0 25px 0 round 0 500px 500px 0);
             }
         }
 
