@@ -1,3 +1,4 @@
+@charset "UTF-8";
 * {
   margin: 0;
   padding: 0;
@@ -28,6 +29,8 @@ header nav .nav-row {
 header nav .nav-row__logo {
   width: 125px;
   height: 100%;
+  display: flex;
+  align-items: center;
 }
 header nav .nav-row__logo img {
   width: 100px;
@@ -46,6 +49,17 @@ header nav .nav-row__burger img {
 main {
   width: 100%;
   background-color: #f4ede4;
+  /*Se alinea todo en row. El texto de welcome
+  se alinea a la izquierda y el video
+  hace un overflow a la derecha en 769px*/
+  /*Las solutions usan videos en vez
+  de imagenes y el texto se alinea en el centro
+  en 769px*/
+  /* Media queries para 769px la parte de
+  explore se amplia a 4 cajas.*/
+  /*Media queries para 577px en
+  el footer, es lo primero que se ajusta
+  lo demás va bien. Hacer visibles los desplegables*/
 }
 main .main-section {
   width: 100%;
@@ -207,6 +221,8 @@ main .solutions-section {
 main .solutions-section__container {
   padding: 0 4vw;
   margin: 0 auto;
+  /*Las stats pasan a flex-direction
+  row y se ven más grandes en 769px*/
 }
 main .solutions-section__container h3 {
   text-align: center;
@@ -223,31 +239,6 @@ main .solutions-section__container .solutions-section__buttons {
   margin-top: 1rem;
   margin-bottom: 4rem;
   text-align: center;
-}
-main .solutions-section__container .solutions-section__buttons .button-purple-white-l {
-  width: 100%;
-  background-color: #541554;
-  color: white;
-  text-align: center;
-  border-radius: 4px;
-  border: none;
-  font-family: "Roboto", sans-serif;
-  font-weight: 700;
-  letter-spacing: 0.8px;
-  padding: 19px 40px 20px;
-}
-main .solutions-section__container .solutions-section__buttons .button-white-purple-l {
-  width: 100%;
-  background-color: white;
-  color: #541554;
-  text-align: center;
-  border-radius: 4px;
-  border: 0.5px solid #541554;
-  font-family: "Roboto", sans-serif;
-  font-weight: 700;
-  letter-spacing: 0.8px;
-  padding: 19px 40px 20px;
-  margin-top: 1rem;
 }
 main .solutions-section__container .solutions-section__stats {
   display: flex;
@@ -277,6 +268,31 @@ main .solutions-section__container .solutions-section__stats li .stat-copy {
   margin: 0;
   color: black;
   margin-bottom: 3rem;
+}
+main .button-purple-white-l {
+  width: 100%;
+  background-color: #541554;
+  color: white;
+  text-align: center;
+  border-radius: 4px;
+  border: none;
+  font-family: "Roboto", sans-serif;
+  font-weight: 700;
+  letter-spacing: 0.8px;
+  padding: 19px 40px 20px;
+}
+main .button-white-purple-l {
+  width: 100%;
+  background-color: white;
+  color: #541554;
+  text-align: center;
+  border-radius: 4px;
+  border: 0.5px solid #541554;
+  font-family: "Roboto", sans-serif;
+  font-weight: 700;
+  letter-spacing: 0.8px;
+  padding: 19px 40px 20px;
+  margin-top: 1rem;
 }
 main .stories-section {
   margin-left: auto;
@@ -338,10 +354,14 @@ main .stories-section__asterisk p {
 main .explore-section {
   background-color: #f4ede4;
   border: none;
-  padding: 2rem 0;
+  padding: 2rem 1rem;
+  width: 100%;
 }
 main .explore-section__title {
   text-align: center;
+}
+main .explore-section__title header {
+  width: auto;
 }
 main .explore-section__title h3 {
   font-weight: 700;
@@ -353,7 +373,152 @@ main .explore-section__title h3 {
   color: black;
 }
 main .explore-section__box {
-  padding-bottom: 1.5rem;
+  padding: 1rem;
   margin: 0 auto;
   background-color: white;
+  max-width: 285px;
+}
+main .explore-section .info-chart {
+  height: 70%;
+}
+main .explore-section .info-chart img {
+  width: 100%;
+}
+main .explore-section .info-chart p {
+  margin: 1.5rem 0;
+}
+main .explore-section .redirection {
+  height: 30%;
+  padding-top: 4rem;
+  display: flex;
+  justify-content: space-between;
+  color: #1264a3;
+}
+main .explore-section ul {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  color: grey;
+  margin-top: 2rem;
+}
+main .explore-section ul li {
+  margin-left: 1rem;
+}
+main .explore-section ul .selected {
+  color: #541554;
+  margin-left: 0;
+}
+main .discover-section {
+  background-color: white;
+}
+main .discover-section__area {
+  -webkit-clip-path: ellipse(105% 100% at center top);
+          clip-path: ellipse(105% 100% at center top);
+  padding-bottom: 6rem;
+  padding-top: 5rem;
+  background: #541554;
+  border: none;
+  height: auto;
+  min-height: 370px;
+}
+main .discover-section__container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 0 4vw;
+}
+main .discover-section__container h3 {
+  text-align: center;
+  color: white;
+  font-weight: 700;
+  line-height: 1.158;
+  letter-spacing: -0.8px;
+  margin-top: 0;
+  font-size: 2rem;
+  margin-bottom: 1rem;
+}
+main .discover-section__container .button-purple-white-l {
+  border: 1px solid white;
+  margin-top: 1rem;
+}
+main footer {
+  width: 100%;
+  background-color: white;
+  /*Le doy margin top al divider para que hay un
+  espacio igual entre la parte de arriba y la de abajo.
+  Arreglar en las mediaqueries*/
+}
+main footer .footer-menu {
+  padding-top: 3.5rem;
+}
+main footer .footer-menu__container {
+  padding: 0 4vw;
+}
+main footer .footer-menu__container img {
+  width: 50px;
+}
+main footer .footer-menu__container nav {
+  display: block;
+  margin-bottom: 1rem;
+  margin-top: 2rem;
+}
+main footer .footer-menu__container nav ul {
+  margin-bottom: 1rem;
+}
+main footer .footer-menu__container nav li {
+  display: flex;
+  justify-content: space-between;
+  font-weight: bold;
+  margin-bottom: 1.5rem;
+}
+main footer .divider {
+  border: 1px solid rgb(202, 202, 202);
+  width: 90%;
+  margin: 0 auto;
+  margin-top: 3rem;
+}
+main footer .footer-metasocial {
+  margin-bottom: 1rem;
+  margin-top: 0;
+}
+main footer .footer-metasocial__container {
+  padding: 0 4vw;
+  font-weight: bold;
+}
+main footer .footer-metasocial__container .footer-metasocial__items {
+  padding-top: 1rem;
+  flex-direction: column;
+  align-items: flex-start;
+}
+main footer .footer-metasocial__container .footer-metasocial__items li {
+  margin-top: 2rem;
+}
+main footer .footer-metasocial__container .footer-metasocial__items .download {
+  color: #1264a3;
+}
+main footer .footer-metasocial__container .footer-metasocial__items span {
+  color: blue;
+}
+main footer .footer-metasocial__container .footer-metasocial__social {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  margin-top: 2rem;
+}
+main footer .footer-metasocial__container .footer-metasocial__social img {
+  width: 25px;
+}
+main footer .footer-legal {
+  margin-bottom: 2rem;
+  margin-top: 0;
+  line-height: 1.25rem;
+}
+main footer .footer-legal__container {
+  padding: 0 4vw;
+}
+main footer .footer-legal__container p {
+  color: #696969;
+  font-size: 0.75rem;
 }/*# sourceMappingURL=styles.css.map */
