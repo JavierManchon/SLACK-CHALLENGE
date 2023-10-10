@@ -15,7 +15,7 @@ header nav {
   background-color: #541554;
   width: 100%;
   position: fixed;
-  z-index: 2;
+  z-index: 3;
 }
 header nav a {
   text-decoration: none;
