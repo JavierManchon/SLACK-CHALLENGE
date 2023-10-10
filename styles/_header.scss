@@ -7,7 +7,7 @@ header {
         background-color: $primary-color;
         width: 100%;
         position: fixed;
-        z-index: 1;
+        z-index: 2;
 
         .nav-row {
             width: 100%;
@@ -29,6 +29,10 @@ header {
                 }
             }
 
+            &__nav {
+                display: none;
+            }
+
             &__burger {
                 display: flex;
                 align-items: center;
@@ -37,6 +41,74 @@ header {
                 img {
                     width: 18px;
                     height: auto;
+                }
+            }
+
+            &__buttons {
+                display: none;
+            }
+        }
+    }
+}
+
+@media screen and (min-width: 1200px) {
+    header {
+    
+        nav {
+    
+            .nav-row {         
+    
+                &__nav {
+                    display: flex;
+                    flex-direction: row;
+                    align-items: center;
+                    width: 60%;
+
+                    ul {
+                        display: flex;
+                        flex-direction: row;
+                        align-items: center;
+                        text-align: left;
+                        color: white;
+
+                        li {
+                            margin-right: 1.5rem;
+                            font-weight: bold;
+                        }
+                    }
+                }
+    
+                &__burger {
+                    display: none;
+    
+                }
+    
+                &__buttons {
+                    display: flex;
+                    flex-direction: row;
+                    align-items: center;
+                    justify-content: end;
+
+                    a {
+                        text-decoration: none;
+                        color: white;
+                        margin-right: 1rem;
+                        padding: 0.5rem 0;
+                        font-weight: bold;
+                    }
+
+                    .button-white-purple-l {
+                        width: 100%;
+                        background-color: white;
+                        color: $primary-color;
+                        text-align: center;
+                        border-radius: 4px;
+                        border: 0.5px solid $primary-color;
+                        font-family: "Roboto", sans-serif;
+                        font-weight: 700;
+                        letter-spacing: .8px;
+                        padding: 0.75rem 1rem;
+                    }
                 }
             }
         }

@@ -16,7 +16,7 @@ header nav {
   background-color: #541554;
   width: 100%;
   position: fixed;
-  z-index: 1;
+  z-index: 2;
 }
 header nav .nav-row {
   width: 100%;
@@ -36,6 +36,9 @@ header nav .nav-row__logo img {
   width: 100px;
   height: auto;
 }
+header nav .nav-row__nav {
+  display: none;
+}
 header nav .nav-row__burger {
   display: flex;
   align-items: center;
@@ -45,21 +48,60 @@ header nav .nav-row__burger img {
   width: 18px;
   height: auto;
 }
+header nav .nav-row__buttons {
+  display: none;
+}
 
+@media screen and (min-width: 1200px) {
+  header nav .nav-row__nav {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    width: 60%;
+  }
+  header nav .nav-row__nav ul {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    text-align: left;
+    color: white;
+  }
+  header nav .nav-row__nav ul li {
+    margin-right: 1.5rem;
+    font-weight: bold;
+  }
+  header nav .nav-row__burger {
+    display: none;
+  }
+  header nav .nav-row__buttons {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: end;
+  }
+  header nav .nav-row__buttons a {
+    text-decoration: none;
+    color: white;
+    margin-right: 1rem;
+    padding: 0.5rem 0;
+    font-weight: bold;
+  }
+  header nav .nav-row__buttons .button-white-purple-l {
+    width: 100%;
+    background-color: white;
+    color: #541554;
+    text-align: center;
+    border-radius: 4px;
+    border: 0.5px solid #541554;
+    font-family: "Roboto", sans-serif;
+    font-weight: 700;
+    letter-spacing: 0.8px;
+    padding: 0.75rem 1rem;
+  }
+}
 main {
   width: 100%;
   background-color: #f4ede4;
-  /*Se alinea todo en row. El texto de welcome
-  se alinea a la izquierda y el video
-  hace un overflow a la derecha en 769px*/
-  /*Las solutions usan videos en vez
-  de imagenes y el texto se alinea en el centro
-  en 769px*/
-  /* Media queries para 769px la parte de
-  explore se amplia a 4 cajas.*/
-  /*Media queries para 577px en
-  el footer, es lo primero que se ajusta
-  lo demás va bien. Hacer visibles los desplegables*/
 }
 main .main-section {
   width: 100%;
@@ -84,6 +126,9 @@ main .main-section .welcome-box p {
   font-size: 1rem;
   margin-top: 0.5rem;
   margin-bottom: 1rem;
+}
+main .main-section .welcome-box .mobile-hidden {
+  display: none;
 }
 main .main-section .welcome-box__main-button {
   width: 100%;
@@ -168,6 +213,9 @@ main .features-section {
   background-color: #f4ede4;
   border: 0;
 }
+main .features-section video {
+  display: none;
+}
 main .features-section__apps {
   padding-right: 4vw;
 }
@@ -221,8 +269,6 @@ main .solutions-section {
 main .solutions-section__container {
   padding: 0 4vw;
   margin: 0 auto;
-  /*Las stats pasan a flex-direction
-  row y se ven más grandes en 769px*/
 }
 main .solutions-section__container h3 {
   text-align: center;
@@ -275,7 +321,7 @@ main .button-purple-white-l {
   color: white;
   text-align: center;
   border-radius: 4px;
-  border: none;
+  border: 0.5px solid #541554;
   font-family: "Roboto", sans-serif;
   font-weight: 700;
   letter-spacing: 0.8px;
@@ -372,11 +418,18 @@ main .explore-section__title h3 {
   margin-bottom: 1rem;
   color: black;
 }
-main .explore-section__box {
+main .explore-section__boxes-display {
+  display: flex;
+  flex-wrap: wrap;
+}
+main .explore-section__box-functions, main .explore-section__box-cases, main .explore-section__box-solutions, main .explore-section__box-how {
   padding: 1rem;
   margin: 0 auto;
   background-color: white;
   max-width: 285px;
+}
+main .explore-section__box-cases, main .explore-section__box-solutions, main .explore-section__box-how {
+  display: none;
 }
 main .explore-section .info-chart {
   height: 70%;
@@ -452,25 +505,28 @@ main footer {
 main footer .footer-menu {
   padding-top: 3.5rem;
 }
-main footer .footer-menu__container {
+main footer .footer-menu .footer-menu__container {
   padding: 0 4vw;
 }
-main footer .footer-menu__container img {
+main footer .footer-menu .footer-menu__container img {
   width: 50px;
 }
-main footer .footer-menu__container nav {
+main footer .footer-menu .footer-menu__container nav {
   display: block;
   margin-bottom: 1rem;
   margin-top: 2rem;
 }
-main footer .footer-menu__container nav ul {
+main footer .footer-menu .footer-menu__container nav .footer-lists {
   margin-bottom: 1rem;
 }
-main footer .footer-menu__container nav li {
+main footer .footer-menu .footer-menu__container nav .footer-lists-element {
   display: flex;
   justify-content: space-between;
   font-weight: bold;
   margin-bottom: 1.5rem;
+}
+main footer .footer-menu .footer-menu__container nav .footer-lists-element .footer-dropdown {
+  display: none;
 }
 main footer .divider {
   border: 1px solid rgb(202, 202, 202);
@@ -521,4 +577,133 @@ main footer .footer-legal__container {
 main footer .footer-legal__container p {
   color: #696969;
   font-size: 0.75rem;
+}
+
+@media screen and (min-width: 576px) {
+  .footer-lists-element {
+    display: flex;
+    justify-content: space-evenly;
+    font-weight: bold;
+    margin-bottom: 1.5rem;
+  }
+  .footer-lists-element i {
+    display: none;
+  }
+  /*Si no pongo toda la ruta no funciona*/
+  .footer-menu .footer-menu__container nav .footer-lists {
+    display: grid;
+    align-items: flex-start;
+    justify-items: start;
+    grid-template-columns: repeat(3, 1fr);
+  }
+  .footer-menu .footer-menu__container nav .footer-lists .footer-lists-element {
+    display: flex;
+    flex-direction: column;
+  }
+  .footer-menu .footer-menu__container nav .footer-lists .footer-lists-element .footer-dropdown {
+    display: flex;
+    flex-direction: column;
+    font-weight: normal;
+    font-size: 0.9375rem;
+    color: gray;
+    line-height: 1.4444;
+  }
+}
+@media screen and (min-width: 768px) {
+  main {
+    /* Consultar por que así funciona y de la otra forma no */
+  }
+  main .main-section {
+    text-align: left;
+    display: flex;
+    flex-direction: row;
+  }
+  main .main-section .welcome-box {
+    z-index: 1;
+  }
+  main .main-section .welcome-box h1 {
+    font-size: 2.5rem;
+  }
+  main .main-section .welcome-box__google-button {
+    margin-bottom: 2rem;
+  }
+  main .main-section .magic-proyect-illustration {
+    transform: translateX(100px);
+  }
+  main .features-section {
+    padding: 3rem 0;
+    padding-top: 0;
+    overflow: hidden;
+    background-color: #f4ede4;
+    border: 0;
+  }
+  main .features-section video {
+    display: flex;
+    max-width: 678px;
+    max-height: 400px;
+  }
+  main .features-section img {
+    display: none;
+  }
+  main .features-section__apps {
+    padding-right: 4vw;
+  }
+  main .features-section__apps .features-section__section-copy {
+    margin: 1rem auto 0;
+  }
+  main .features-section__community {
+    margin-left: 0;
+    align-items: center;
+    padding: 4rem 0;
+  }
+  main .features-section__community .features-section {
+    margin-left: 0;
+  }
+  main .features-section__community .features-section__section-copy {
+    margin: 1rem auto 0;
+  }
+  main .features-section__section-copy {
+    margin-top: 2rem;
+    max-width: 30rem;
+    margin-bottom: 3rem;
+  }
+  main .solutions-section__buttons {
+    display: flex;
+    flex-direction: row;
+    align-items: flex-end;
+    width: 100%;
+  }
+  main .solutions-section .solutions-section__stats {
+    display: flex;
+    flex-direction: row;
+    align-items: flex-start;
+  }
+  main .explore-section ul {
+    display: none;
+  }
+  main .explore-section__boxes-display {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+  }
+  main .explore-section__box-functions, main .explore-section__box-cases, main .explore-section__box-solutions, main .explore-section__box-how {
+    padding: 1rem;
+    margin: 2rem 1rem;
+    background-color: white;
+    max-width: 285px;
+  }
+  main .explore-section__box-cases, main .explore-section__box-solutions, main .explore-section__box-how {
+    display: block;
+  }
+  main .footer-metasocial .footer-metasocial__container .footer-metasocial__items {
+    display: flex;
+    flex-direction: row;
+    font-size: 0.75rem;
+    flex-wrap: wrap;
+    justify-content: space-around;
+  }
+  main .footer-metasocial .footer-metasocial__container .footer-metasocial__social {
+    justify-content: flex-start;
+  }
 }/*# sourceMappingURL=styles.css.map */
