@@ -1,4 +1,3 @@
-@charset "UTF-8";
 * {
   margin: 0;
   padding: 0;
@@ -8,7 +7,7 @@
 }
 
 header {
-  width: 100vw;
+  width: 100%;
 }
 header nav {
   height: 55px;
@@ -17,6 +16,10 @@ header nav {
   width: 100%;
   position: fixed;
   z-index: 2;
+}
+header nav a {
+  text-decoration: none;
+  color: white;
 }
 header nav .nav-row {
   width: 100%;
@@ -96,15 +99,50 @@ header nav .nav-row__buttons {
     font-family: "Roboto", sans-serif;
     font-weight: 700;
     letter-spacing: 0.8px;
-    padding: 0.75rem 1rem;
+    padding: 0.5rem 0.75rem;
+    white-space: nowrap;
+    cursor: pointer;
+  }
+  header nav .nav-row__buttons .button-purple-white-l {
+    width: 100%;
+    background-color: #541554;
+    color: white;
+    text-align: center;
+    border-radius: 4px;
+    border: 0.5px solid white;
+    font-family: "Roboto", sans-serif;
+    font-weight: 700;
+    letter-spacing: 0.8px;
+    padding: 0.5rem 0.75rem;
+    margin-right: 1rem;
+    white-space: nowrap;
+    cursor: pointer;
   }
 }
 main {
   width: 100%;
+  background-color: white;
+}
+main .main-container {
+  width: 100%;
+  background-color: #541554;
+  display: flex;
+  justify-content: center;
+}
+main .features-container {
+  width: 100%;
   background-color: #f4ede4;
+  display: flex;
+  justify-content: center;
+}
+main .solutions-container {
+  width: 100%;
+  background-color: white;
+  display: flex;
+  justify-content: center;
 }
 main .main-section {
-  width: 100%;
+  width: 1600px;
   padding: 0 4vw;
   padding-top: 6rem;
   font-weight: bold;
@@ -141,6 +179,7 @@ main .main-section .welcome-box__main-button {
   font-weight: 700;
   letter-spacing: 0.8px;
   padding: 19px 40px 20px;
+  cursor: pointer;
 }
 main .main-section .welcome-box__google-button {
   width: 100%;
@@ -157,6 +196,7 @@ main .main-section .welcome-box__google-button {
   padding: 19px 40px 20px;
   margin-top: 0.5rem;
   position: relative;
+  cursor: pointer;
 }
 main .main-section .welcome-box__google-button img {
   border-radius: 2px;
@@ -207,6 +247,7 @@ main .companies-section__companies .uber {
   margin: 1rem;
 }
 main .features-section {
+  width: 1450px;
   padding: 3rem 0;
   padding-top: 0;
   overflow: hidden;
@@ -265,6 +306,7 @@ main .solutions-section {
   overflow: hidden;
   padding: 3rem 0;
   background-color: white;
+  width: 1600px;
 }
 main .solutions-section__container {
   padding: 0 4vw;
@@ -326,6 +368,7 @@ main .button-purple-white-l {
   font-weight: 700;
   letter-spacing: 0.8px;
   padding: 19px 40px 20px;
+  cursor: pointer;
 }
 main .button-white-purple-l {
   width: 100%;
@@ -339,6 +382,7 @@ main .button-white-purple-l {
   letter-spacing: 0.8px;
   padding: 19px 40px 20px;
   margin-top: 1rem;
+  cursor: pointer;
 }
 main .stories-section {
   margin-left: auto;
@@ -421,12 +465,19 @@ main .explore-section__title h3 {
 main .explore-section__boxes-display {
   display: flex;
   flex-wrap: wrap;
+  justify-content: center;
+  flex-direction: column;
 }
 main .explore-section__box-functions, main .explore-section__box-cases, main .explore-section__box-solutions, main .explore-section__box-how {
   padding: 1rem;
   margin: 0 auto;
   background-color: white;
   max-width: 285px;
+  box-shadow: 0px 0px 33px -3px rgb(199, 199, 199);
+}
+main .explore-section__box-functions:hover, main .explore-section__box-cases:hover, main .explore-section__box-solutions:hover, main .explore-section__box-how:hover {
+  transform: scale(1.5);
+  z-index: 2;
 }
 main .explore-section__box-cases, main .explore-section__box-solutions, main .explore-section__box-how {
   display: none;
@@ -446,6 +497,7 @@ main .explore-section .redirection {
   display: flex;
   justify-content: space-between;
   color: #1264a3;
+  cursor: pointer;
 }
 main .explore-section ul {
   display: flex;
@@ -549,6 +601,7 @@ main footer .footer-metasocial__container .footer-metasocial__items {
 }
 main footer .footer-metasocial__container .footer-metasocial__items li {
   margin-top: 2rem;
+  cursor: pointer;
 }
 main footer .footer-metasocial__container .footer-metasocial__items .download {
   color: #1264a3;
@@ -565,6 +618,7 @@ main footer .footer-metasocial__container .footer-metasocial__social {
 }
 main footer .footer-metasocial__container .footer-metasocial__social img {
   width: 25px;
+  cursor: pointer;
 }
 main footer .footer-legal {
   margin-bottom: 2rem;
@@ -589,7 +643,6 @@ main footer .footer-legal__container p {
   .footer-lists-element i {
     display: none;
   }
-  /*Si no pongo toda la ruta no funciona*/
   .footer-menu .footer-menu__container nav .footer-lists {
     display: grid;
     align-items: flex-start;
@@ -608,11 +661,11 @@ main footer .footer-legal__container p {
     color: gray;
     line-height: 1.4444;
   }
+  .footer-menu .footer-menu__container nav .footer-lists .footer-lists-element .footer-dropdown li {
+    cursor: pointer;
+  }
 }
 @media screen and (min-width: 768px) {
-  main {
-    /* Consultar por que así funciona y de la otra forma no */
-  }
   main .main-section {
     text-align: left;
     display: flex;
@@ -686,6 +739,7 @@ main footer .footer-legal__container p {
     flex-wrap: wrap;
     justify-content: center;
     align-items: center;
+    flex-direction: row;
   }
   main .explore-section__box-functions, main .explore-section__box-cases, main .explore-section__box-solutions, main .explore-section__box-how {
     padding: 1rem;
@@ -705,5 +759,29 @@ main footer .footer-legal__container p {
   }
   main .footer-metasocial .footer-metasocial__container .footer-metasocial__social {
     justify-content: flex-start;
+  }
+}
+@media screen and (min-width: 1200px) {
+  .features-section .features-section__apps {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+  .features-section .features-section__apps video {
+    transform: translateX(-50px);
+  }
+  .features-section .features-section__community {
+    display: flex;
+    flex-direction: row-reverse;
+    align-items: center;
+    justify-content: space-between;
+  }
+  .features-section .features-section__community video {
+    transform: translateX(50px);
+  }
+  .stories-section {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
   }
 }/*# sourceMappingURL=styles.css.map */

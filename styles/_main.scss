@@ -1,9 +1,30 @@
 main {
     width: 100%;
-    background-color: $secondary-color;
+    background-color: white;
+
+    .main-container {
+        width: 100%;
+        background-color: $primary-color;
+        display: flex;
+        justify-content: center;
+    }
+
+    .features-container {
+        width: 100%;
+        background-color: $secondary-color;
+        display: flex;
+        justify-content: center;
+    }
+
+    .solutions-container {
+        width: 100%;
+        background-color: white;
+        display: flex;
+        justify-content: center;
+    }
 
     .main-section {
-        width: 100%;
+        width: 1600px;
         padding: 0 4vw;
         padding-top: 6rem;
         font-weight: bold;
@@ -44,6 +65,7 @@ main {
                 font-weight: 700;
                 letter-spacing: .8px;
                 padding: 19px 40px 20px;
+                cursor: pointer;
             }
 
             &__google-button {
@@ -61,6 +83,7 @@ main {
                 padding: 19px 40px 20px;
                 margin-top: 0.5rem;
                 position: relative;
+                cursor: pointer;
                 
 
 
@@ -124,6 +147,7 @@ main {
     }
 
     .features-section {
+        width: 1450px;
         padding: 3rem 0;
         padding-top: 0;
         overflow: hidden;
@@ -197,6 +221,7 @@ main {
         overflow: hidden;
         padding: 3rem 0;
         background-color: white;
+        width: 1600px;
 
         &__container {
             padding: 0 4vw;
@@ -267,6 +292,7 @@ main {
         font-weight: 700;
         letter-spacing: .8px;
         padding: 19px 40px 20px;
+        cursor: pointer;
     }
 
     .button-white-purple-l {
@@ -281,6 +307,7 @@ main {
         letter-spacing: .8px;
         padding: 19px 40px 20px;
         margin-top: 1rem;
+        cursor: pointer;
     }
 
     .stories-section {
@@ -293,6 +320,7 @@ main {
         padding-bottom: 1rem;
         max-width: 1530px;
         background-color: white;
+
 
         .video-example {
             margin: 0 0 1rem;
@@ -376,13 +404,21 @@ main {
         &__boxes-display {
             display: flex;
             flex-wrap: wrap;
+            justify-content: center;
+            flex-direction: column;
         }
 
         &__box-functions, &__box-cases, &__box-solutions, &__box-how {
             padding: 1rem;
             margin: 0 auto;
             background-color: white;
-            max-width: 285px
+            max-width: 285px;
+            box-shadow: 0px 0px 33px -3px rgba(199,199,199,1);
+        }
+
+        &__box-functions:hover, &__box-cases:hover, &__box-solutions:hover, &__box-how:hover {
+            transform: scale(1.5);
+            z-index: 2;
         }
 
         &__box-cases, &__box-solutions, &__box-how {
@@ -407,6 +443,7 @@ main {
             display: flex;
             justify-content: space-between;
             color: #1264a3;
+            cursor: pointer;
         }
 
         ul {
@@ -531,6 +568,7 @@ main {
 
                     li {
                         margin-top: 2rem;
+                        cursor: pointer;
                     }
 
                     .download {
@@ -551,6 +589,7 @@ main {
 
                     img {
                         width: 25px;
+                        cursor: pointer;
                     }
                 }
             }
@@ -588,8 +627,6 @@ main {
 
     }
 
-    /*Si no pongo toda la ruta no funciona*/
-
     .footer-menu {
         .footer-menu__container {
             nav {
@@ -610,6 +647,10 @@ main {
                             font-size: .9375rem;
                             color: gray;
                             line-height: 1.4444;
+
+                            li {
+                                cursor: pointer;
+                            }
                         }
                     }
                 }
@@ -704,7 +745,6 @@ main {
             width: 100%;
         }
 
-        /* Consultar por que así funciona y de la otra forma no */
 
         .solutions-section {
 
@@ -712,7 +752,6 @@ main {
                 display: flex;
                 flex-direction: row;
                 align-items: flex-start;
-
             }
         }
 
@@ -726,6 +765,7 @@ main {
                 flex-wrap: wrap;
                 justify-content: center;
                 align-items: center;
+                flex-direction: row;
             }
 
             &__box-functions, &__box-cases, &__box-solutions, &__box-how {
@@ -759,4 +799,35 @@ main {
     
     }
 
+}
+
+@media screen and (min-width: 1200px) {
+    .features-section {
+        .features-section__apps {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+
+            video {
+                transform: translateX(-50px);
+            }
+        }
+
+        .features-section__community {
+            display: flex;
+            flex-direction: row-reverse;
+            align-items: center;
+            justify-content: space-between;
+
+            video {
+                transform: translateX(50px);
+            }
+        }
+    }
+
+    .stories-section {
+        display: flex;
+        flex-direction: row;
+        flex-wrap: wrap;
+    }
 }
